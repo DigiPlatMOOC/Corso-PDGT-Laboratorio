@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+
+	<!-- priority -->
+	<!--
+	<category>
+		<pattern>MY NAME IS _</pattern>
+		<template>NICE TO MEET YOU <star /></template>
+	</category> 
+	-->
+	
+	<category>
+		<pattern>MY NAME IS *</pattern>
+		<template>HI <star />, WHAT A PLEASANT NAME!</template>
+	</category>
+	
+	<!-- multiple wildcards -->
+	<!--
+	<category>
+		<pattern>* IS *</pattern>
+		<template>YEAH! FOR SURE <star index="1" /> IS <star index="2"/>, I WAS JUST ABOUT TO SAY THAT...</template>
+	</category>
+	-->
+	
+	<!-- auto splitting -->
+	<!-- 
+	<category>
+		<pattern>MY NAME IS _ _</pattern>
+		<template>HI <star index="1" />, WHAT A PLEASANT NAME!</template>
+	</category>
+	-->
+
+</aiml>

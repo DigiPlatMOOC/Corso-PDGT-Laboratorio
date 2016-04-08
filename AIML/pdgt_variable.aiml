@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+
+	<category>
+		<pattern>I AM *</pattern>
+		<template>
+			<think>
+				<set name="age">
+					<star/>
+				</set>
+			</think>
+			You are <get name="age" />. Good for you pal!
+		</template>
+	</category>
+
+	<!-- variable as topic -->
+	<category>
+		<pattern>I WANT TO TALK ABOUT *</pattern>
+		<template>
+			<think>
+				<set name="talking-about">
+					<star/>
+				</set>
+			</think>
+			Ok fine... let's talk about <get name="talking-about"/>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>DID YOU KNOW THEY WERE AWESOME AT *</pattern>
+		<that>^ let us talk about *</that>
+		<template>
+			No! Really? I didn't know <get name="talking-about"/> were so good at that!
+		</template>
+	</category>
+	
+</aiml>
