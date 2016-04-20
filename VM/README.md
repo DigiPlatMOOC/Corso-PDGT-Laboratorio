@@ -5,12 +5,12 @@ This repository contains a simple setup for a Vagrant virtual machine that can b
 ## **What you need to know?**
   This Vagrant machine is heavily based on [ScotchBox](https://box.scotch.io/) and basic information can be got from the linked website.
   The machine setup creates a private network in order to make the webserver of the guest machine be reachable from the host machine at  [http://192.168.33.10:80](http://192.168.33.10:80).
-  Together with the ScotchBox basic components this machine include a working installation of PHPMyAdmin (at [http://192.168.33.10/phpmyadmin](http://192.168.33.10/phpmyadmin)), useful to manage the embedded MySQL database confuguration, along with a ready to be used Program-O instance (at [http://192.168.33.10/programo](http://192.168.33.10/programo)) derived from [https://github.com/DigiPlatMOOC/Program-O.git](https://github.com/DigiPlatMOOC/Program-O.git)
+  Together with the ScotchBox basic components this machine include a working installation of PHPMyAdmin (at [http://192.168.33.10/setup/phpmyadmin](http://192.168.33.10/setup/phpmyadmin)), useful to manage the embedded MySQL database confuguration, along with a ready to be used Program-O instance (at [http://192.168.33.10/setup/program-o](http://192.168.33.10/setup/program-o)) derived from [https://github.com/DigiPlatMOOC/Program-O.git](https://github.com/DigiPlatMOOC/Program-O.git)
   
 ### **Basic configuration (other than the ones provided for ScotchBox)**
-  * Local PHPMyAdmin URL: [http://192.168.33.10/phpmyadmin](http://192.168.33.10/phpmyadmin)
+  * Local PHPMyAdmin URL: [http://192.168.33.10/setup/phpmyadmin](http://192.168.33.10/setup/phpmyadmin)
   
-  * Local Program-O URL: [http://192.168.33.10/programo](http://192.168.33.10/programo)
+  * Local Program-O URL: [http://192.168.33.10/setup/program-o](http://192.168.33.10/setup/program-o)
   
   * Program-O MySQL database name: __programo__
   
@@ -44,6 +44,9 @@ This repository contains a simple setup for a Vagrant virtual machine that can b
   to add database and user at the same time.
   * **public/setup_phpmyadmin.sh**
   Script needed at bootstrap phase to properly configure your PHPMyAdmin installation. This should not be used directly.
+  * **public/setup**
+  This directory contains all files that are generated at boostrap time. You should not use this files directly. 
+  
   
 ## **How to use it?**
 You only need to know few vagrant commands to use this development VM (following lines are taken directly from the official [Vagrant documentation](https://www.vagrantup.com/docs/cli/ssh.html)):
@@ -68,3 +71,20 @@ For any other information about how to use Vagrant you should take a look at the
 
 ## ***Have Fun!***
 
+## **Troubleshooting**
+### *__When I run `vagrant up` command I see a strange error that scare me a lot. It says that **VT-x** is missing or something like that. Am I doomed?__*
+Nope, you are not doomed. You probably only need to enable the hardware acceleration in your BIOS settings.
+
+### *__When I run `vagrant ssh` the monster inside my pc tells me that I have no **ssh**. What is wrong with me?__*
+You are perfectly fine! But it seems you don't have an ssh client in your system path. That could mean either that you don't have any ssh client installed in your pc or that you simply have to add its path into your system path variable. 
+
+In any case (If your host machine runs Windows) you should be able to use [Putty](https://the.earth.li/~sgtatham/putty/latest/x86/putty-0.67-installer.msi) so go get it and use theese parameters to connect to your machine:
+* Host Name: _vagrant@127.0.0.1_
+* Port: _2222_
+* Password (when you are asked to insert it): _vagrant_
+
+### *__I run `vagrant up` but vagrant is stuck with the SSH setup. I have to throw away my pc, right?__*
+Not quite... If 5 minutes have passed and nothing new appears on the screen your best shot is to apply the [in]famous gold rule that all developers have always knew: just restart it! 
+
+In other words, kill the process (Ctrl+C), delete every files inside _public/setup/_ then, just to be absolutely sure, type `vagrant destroy` and confirm (if asked to). 
+Now you just have to retry typing again `vagrant up` while all your fingers are crossed (yeah, that could be tough).
