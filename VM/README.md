@@ -72,11 +72,11 @@ For any other information about how to use Vagrant you should take a look at the
 ## ***Have Fun!***
 
 ## **Troubleshooting**
-### *__When I run `vagrant up` command I see a strange error that scare me a lot. It says that **VT-x** is missing or something like that. Am I doomed?__*
+### *__When I run `vagrant up` command I see a strange error that scares me a lot. It says that **VT-x** is missing or something like that. Am I doomed?__*
 Nope, you are not doomed. You probably only need to enable the hardware acceleration in your BIOS settings.
 
 ### *__When I run `vagrant ssh` the monster inside my pc tells me that I have no **ssh**. What is wrong with me?__*
-You are perfectly fine! But it seems you don't have an ssh client in your system path. That could mean either that you don't have any ssh client installed in your pc or that you simply have to add its path into your system path variable. 
+You are perfectly fine! But it seems you don't have an ssh client in your system path. That could mean either that you actually don't have any ssh client installed in your pc or that you simply have to add its path into your system path variable. 
 
 In any case (If your host machine runs Windows) you should be able to use [Putty](https://the.earth.li/~sgtatham/putty/latest/x86/putty-0.67-installer.msi) so go get it and use theese parameters to connect to your machine:
 * Host Name: _vagrant@127.0.0.1_
