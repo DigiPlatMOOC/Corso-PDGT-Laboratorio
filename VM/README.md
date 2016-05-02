@@ -1,54 +1,69 @@
-# **Vagrant virtual machine setup** 
+# Vagrant virtual machine setup
 
 This repository contains a simple setup for a Vagrant virtual machine that can be used as a starting point to develop your own Program-O based Telegram Bot.
 
-## **What you need to know?**
-  This Vagrant machine is heavily based on [ScotchBox](https://box.scotch.io/) and basic information can be got from the linked website.
-  The machine setup creates a private network in order to make the webserver of the guest machine be reachable from the host machine at  [http://192.168.33.10:80](http://192.168.33.10:80).
-  Together with the ScotchBox basic components this machine include a working installation of PHPMyAdmin (at [http://192.168.33.10/setup/phpmyadmin](http://192.168.33.10/setup/phpmyadmin)), useful to manage the embedded MySQL database confuguration, along with a ready to be used Program-O instance (at [http://192.168.33.10/setup/program-o](http://192.168.33.10/setup/program-o)) derived from [https://github.com/DigiPlatMOOC/Program-O.git](https://github.com/DigiPlatMOOC/Program-O.git)
-  
-### **Basic configuration (other than the ones provided for ScotchBox)**
-  * Local PHPMyAdmin URL: [http://192.168.33.10/setup/phpmyadmin](http://192.168.33.10/setup/phpmyadmin)
-  
-  * Local Program-O URL: [http://192.168.33.10/setup/program-o](http://192.168.33.10/setup/program-o)
-  
-  * Program-O MySQL database name: __programo__
-  
-  * Program-O MySQL user credential username: __botmaster__
-  
-  * Program-O MySQL user credential password: __botmaster2016__
-  
-  We also create another db and user for testing/developing purpose: 
-  * Develop MySQL database ame: __testdb__
-  
-  * Develop MySQL user credential username: __testuser__
-  
-  * Develop MySQL user credential username: __testpassword__ 
+## What you need to know
 
-### **File details**
+This Vagrant machine is mainly based on [ScotchBox](https://box.scotch.io/) and you can get all basic information from the linked website.
+
+The machine setup creates a private network in order to make the webserver of the guest machine be reachable from the host machine at [http://192.168.33.10:80](http://192.168.33.10:80).
+Together with the ScotchBox basic components this machine include a working installation of PHPMyAdmin (at [http://192.168.33.10/setup/phpmyadmin](http://192.168.33.10/setup/phpmyadmin)), useful to manage the embedded MySQL database confuguration, along with a ready to be used Program-O instance (at [http://192.168.33.10/setup/program-o](http://192.168.33.10/setup/program-o)) derived from [https://github.com/DigiPlatMOOC/Program-O.git](https://github.com/DigiPlatMOOC/Program-O.git)
+
+### Basic configuration (other than the ones provided by ScotchBox)
+
+* Local PHPMyAdmin URL: [http://192.168.33.10/setup/phpmyadmin](http://192.168.33.10/setup/phpmyadmin)
+
+* Local Program-O URL: [http://192.168.33.10/setup/program-o](http://192.168.33.10/setup/program-o)
+
+* Program-O MySQL configuation:
+
+  * Database name: programo
+  * User: botmaster
+  * Password: botmaster2016
+  
+* Testing MySQL configuration:
+
+  * Database name: testdb
+  * User: testuser
+  * Password: testpassword
+  
+* Program-O administration interface credentials:
+
+  * User: botmaster
+  * Password: botmaster2016
+
+### File details
+
   * **Vagrantfile**
   The Vagrant configuration file. It includes sub-network creation and provisioning directives. 
+  
   * **bootstrap.sh**
   The script executed at the end of the vagrant machine creation. 
+  
   * **public/**
   The shared directory between the host and the guest machine. The same directory is available inside the vagrant vm at _/var/www/public_. That is also the DocumentRoot of the Apache webserver which runs inside the vm. 
+  
   * **public/index.php**
   It contains information about the ScotchBox instance. Can be seen at [http://192.168.33.10/](http://192.168.33.10/), here you can see all the stuff that are running inside your ScotchBox installation.
+  
   * **public/info.php**
   It contains information about the PHP interpreter (basically is a standard *phpinfo()* file). Can be seen at [http://192.168.33.10/info.php](http://192.168.33.10/info.php).
+  
   * **public/setup_db.sh**
   Script needed at bootstrap phase to add database and user to the MySQL instance. Can also be used like this:
   ```
   $: ./setup_db.sh <db_name> <db_user_login> <db_user_password>
   ``` 
   to add database and user at the same time.
+  
   * **public/setup_phpmyadmin.sh**
   Script needed at bootstrap phase to properly configure your PHPMyAdmin installation. This should not be used directly.
+  
   * **public/setup**
   This directory contains all files that are generated at boostrap time. You should not use this files directly. 
   
-  
-## **How to use it?**
+## How to use it?
+
 You only need to know few vagrant commands to use this development VM (following lines are taken directly from the official [Vagrant documentation](https://www.vagrantup.com/docs/cli/ssh.html)):
 
 * **vagrant up**
@@ -69,13 +84,16 @@ _vagrant up_
 
 For any other information about how to use Vagrant you should take a look at the official [Vagrant website](https://www.vagrantup.com/).
 
-## ***Have Fun!***
+Have fun!
 
-## **Troubleshooting**
-### *__When I run `vagrant up` command I see a strange error that scares me a lot. It says that **VT-x** is missing or something like that. Am I doomed?__*
+## Troubleshooting
+
+### When I run `vagrant up` command I see a strange error that scares me a lot. It says that **VT-x** is missing or something like that. Am I doomed?
+
 Nope, you are not doomed. You probably only need to enable the hardware acceleration in your BIOS settings.
 
-### *__When I run `vagrant ssh` the monster inside my pc tells me that I have no **ssh**. What is wrong with me?__*
+### When I run `vagrant ssh` the monster inside my pc tells me that I have no **ssh**. What is wrong with me?
+
 You are perfectly fine! But it seems you don't have an ssh client in your system path. That could mean either that you actually don't have any ssh client installed in your pc or that you simply have to add its path into your system path variable. 
 
 In any case (If your host machine runs Windows) you should be able to use [Putty](https://the.earth.li/~sgtatham/putty/latest/x86/putty-0.67-installer.msi) so go get it and use theese parameters to connect to your machine:
@@ -83,7 +101,8 @@ In any case (If your host machine runs Windows) you should be able to use [Putty
 * Port: _2222_
 * Password (when you are asked to insert it): _vagrant_
 
-### *__I run `vagrant up` but vagrant is stuck with the SSH setup. I have to throw away my pc, right?__*
+### I run `vagrant up` but vagrant is stuck with the SSH setup. I have to throw away my pc, right?
+
 Not quite... If 5 minutes have passed and nothing new appears on the screen your best shot is to apply the [in]famous gold rule that all developers have always knew: just restart it! 
 
 In other words, kill the process (Ctrl+C), delete every files inside _public/setup/_ then, just to be absolutely sure, type `vagrant destroy` and confirm (if asked to). 
