@@ -75,7 +75,7 @@ This suspends the guest machine Vagrant is managing, rather than fully shutting 
 * **vagrant destroy**
 This command stops the running machine Vagrant is managing and destroys all resources that were created during the machine creation process. After running this command, your computer should be left at a clean state, as if you never created the guest machine in the first place.
 
-In any case, a normal develop cycle should follow only theese steps:
+In any case, a normal develop cycle should follow only these steps:
 
 _vagrant up_
 \> _vagrant ssh_
@@ -90,20 +90,22 @@ Have fun!
 
 ### When I run `vagrant up` command I see a strange error that scares me a lot. It says that **VT-x** is missing or something like that. Am I doomed?
 
-Nope, you are not doomed. You probably only need to enable the hardware acceleration in your BIOS settings.
+Nope, you are not doomed. You probably only need to enable hardware acceleration in your BIOS settings.
 
-### When I run `vagrant ssh` the monster inside my pc tells me that I have no **ssh**. What is wrong with me?
+### When I run `vagrant ssh` the monster inside my pc tells me that I have no **SSH**. What is wrong with me?
 
-You are perfectly fine! But it seems you don't have an ssh client in your system path. That could mean either that you actually don't have any ssh client installed in your pc or that you simply have to add its path into your system path variable. 
+You are perfectly fine! But it seems you don't have an SSH client in your system path. That could mean either that you actually don't have any SSH client installed on your PC or that you simply have to add its path into your system path variable.
 
-In any case (If your host machine runs Windows) you should be able to use [Putty](https://the.earth.li/~sgtatham/putty/latest/x86/putty-0.67-installer.msi) so go get it and use theese parameters to connect to your machine:
+In any case (if your host machine runs Windows) you should be able to use [Putty](https://the.earth.li/~sgtatham/putty/latest/x86/putty-0.67-installer.msi) so go get it and use these parameters to connect to your machine:
+
 * Host Name: _vagrant@127.0.0.1_
 * Port: _2222_
 * Password (when you are asked to insert it): _vagrant_
 
-### I run `vagrant up` but vagrant is stuck with the SSH setup. I have to throw away my pc, right?
+### I run `vagrant up` but vagrant is stuck with the SSH setup. I have to throw away my PC, right?
 
-Not quite... If 5 minutes have passed and nothing new appears on the screen your best shot is to apply the [in]famous gold rule that all developers have always knew: just restart it! 
+Not quite...
+If 5 minutes have passed and nothing new appears on screen, your best shot is to apply the [in]famous golden rule that all developers have always known: [try turning it off and on again](https://youtu.be/p85xwZ_OLX0)! 
 
-In other words, kill the process (Ctrl+C), delete every files inside _public/setup/_ then, just to be absolutely sure, type `vagrant destroy` and confirm (if asked to). 
-Now you just have to retry typing again `vagrant up` while all your fingers are crossed (yeah, that could be tough).
+In other words, kill the process (Ctrl+C), delete every file inside _public/setup/_ then, just to be absolutely sure, type `vagrant destroy` and confirm (if asked to). 
+Now you just have to retry typing `vagrant up` again while all your fingers are crossed (yeah, that could be tough).
