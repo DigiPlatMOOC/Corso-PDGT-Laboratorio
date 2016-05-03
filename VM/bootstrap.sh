@@ -18,6 +18,9 @@ sh setup_db.sh programo botmaster botmaster2016
 # Entering /public/ sub-directory to setup working space
 pushd public > /dev/null
 
+# Spring cleaning
+rm -rf phpmyadmin/ programo/ telegram-bot-sample/
+
 # Setup phpMyAdmin
 echo "Installing phpMyAdmin..."
 wget -q https://files.phpmyadmin.net/phpMyAdmin/4.6.0/phpMyAdmin-4.6.0-all-languages.tar.gz
