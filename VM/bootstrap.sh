@@ -1,15 +1,17 @@
 #!/bin/bash
+
 sudo apt-get -y update --fix-missing
 sudo apt-get -y install dos2unix
+
 #enter into shared directory and create log directory
-cd /var/www/public/setup
+cd /var/www/public
 
 #restore UNIX line ending to prevent Git autocrlf=true to lead to errors
 dos2unix *.sh
 
 #setup mysql db and user login
-sh ../setup_db.sh testdb testuser testpassword
-sh ../setup_db.sh programo botmaster botmaster2016
+sh setup_db.sh testdb testuser testpassword
+sh setup_db.sh programo botmaster botmaster2016
 
 #setup phpMyAdmin
 wget -q https://files.phpmyadmin.net/phpMyAdmin/4.6.0/phpMyAdmin-4.6.0-all-languages.tar.gz
