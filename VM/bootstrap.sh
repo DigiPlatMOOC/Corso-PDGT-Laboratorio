@@ -29,7 +29,7 @@ sh ../setup_phpmyadmin.sh
 # Setup Program-O
 echo "Installing Program-O..."
 git clone https://github.com/DigiPlatMOOC/Program-O.git programo
-curl -H "Content-Type: application/x-www-form-urlencoded" -X POST -d 'botmaster_name=Botmaster&debugemail=botmaster%40example.org&bot_name=MyFirstBot&bot_desc=My+first+AIML+bot&bot_active=1&format=json&error_response=No+AIML+category+found.+This+is+a+Default+Response.&page=2&bot_id=1&error_response=No+AIML+category+found.+This+is+a+Default+Response.&action=Save&dbh=localhost&dbn=programo&dbPort=3306&dbu=botmaster&dbp=botmaster2016&time_zone_locale=Europe%2FBerlin&adm_dbu=botmaster&adm_dbp=botmaster2016&adm_dbp_confirm=botmaster2016&debug_level=4&debug_mode=1&save_state=database' http://127.0.0.1/setup/programo/install/install_programo.php
+curl -H "Content-Type: application/x-www-form-urlencoded" -X POST -d 'botmaster_name=Botmaster&debugemail=botmaster%40example.org&bot_name=MyFirstBot&bot_desc=My+first+AIML+bot&bot_active=1&format=json&error_response=No+AIML+category+found.+This+is+a+Default+Response.&page=2&bot_id=1&error_response=No+AIML+category+found.+This+is+a+Default+Response.&action=Save&dbh=localhost&dbn=programo&dbPort=3306&dbu=botmaster&dbp=botmaster2016&time_zone_locale=Europe%2FBerlin&adm_dbu=botmaster&adm_dbp=botmaster2016&adm_dbp_confirm=botmaster2016&debug_level=4&debug_mode=1&save_state=database' http://127.0.0.1/programo/install/install_programo.php
 
 # Download TelegramBotSample files
 echo "Downloading sample repository..."
