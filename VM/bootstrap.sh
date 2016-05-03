@@ -8,7 +8,7 @@ sudo apt-get -qq -y install dos2unix
 cd /var/www
 
 # Restore UNIX line endings (prevents Git's autocrlf=true from creating installation errors)
-dos2unix -kq *.sh
+dos2unix -k -q *.sh
 
 # Setup MySQL database credentials
 echo "Setting up database..."
