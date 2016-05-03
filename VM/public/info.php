@@ -1,3 +1,4 @@
 <?php
-
-    phpinfo();
+//Writes out PHP information
+phpinfo();
+?>
