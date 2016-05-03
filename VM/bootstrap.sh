@@ -12,7 +12,7 @@ sh ../setup_db.sh testdb testuser testpassword
 sh ../setup_db.sh programo botmaster botmaster2016
 
 #setup phpMyAdmin
-wget https://files.phpmyadmin.net/phpMyAdmin/4.6.0/phpMyAdmin-4.6.0-all-languages.tar.gz
+wget -q https://files.phpmyadmin.net/phpMyAdmin/4.6.0/phpMyAdmin-4.6.0-all-languages.tar.gz
 tar xf phpMyAdmin-4.6.0-all-languages.tar.gz
 mv phpMyAdmin-4.6.0-all-languages phpmyadmin
 rm phpMyAdmin-4.6.0-all-languages.tar.gz
